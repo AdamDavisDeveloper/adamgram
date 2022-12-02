@@ -2,11 +2,57 @@
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #1b1b1b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#App {
+    height: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+
+    .logo-container {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: #1b1b1b;
+        padding: 0;
+        z-index: 1;
+        cursor: pointer;
+
+        img {
+            display: block;
+            margin: 0;
+            width: 16%;
+            min-width: 90px;
+            padding-left: 20px;
+            padding-right: 5px;
+            padding-top: 15px;
+            padding-bottom: 17px;
+            shape-rendering: geometricPrecision;
+        }
+    }
+}
+
+#BioWrapper {
+    display: flex;
+    justify-content: start;
+    padding-top: 9px;
+    padding-right: 15px;
+    padding-bottom: 19px;
+    padding-left: 25px;
 }
