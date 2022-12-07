@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Logo from './assets/logo.svg';
 import ProfilePhoto from './assets/profile.jpg';
 import BlueCheck from './assets/blue-check.svg';
-import DummyData from './DummyData';
+import Content from './Content';
 
 import './Main.scss'
 
@@ -10,66 +10,6 @@ function App() {
   const [ follows, setFollows ]     = useState(0);
   const [ followers, setFollowers ] = useState(0);
   const [ posts, setPosts ]         = useState(0);
-  
-  const rowsExtended: number = (DummyData.length % 3 === 0) ? 0 : 1;
-  //const numberOfRows: number = Math.floor(DummyData.length / 3) + rowsExtended;
-  const numberOfRows: number = dataArray().length;
-
-  function dataArray() {
-    let rows = [];
-    for (let i = 0; i < DummyData.length; i += 3) {
-      rows.push([DummyData[i], imageExists(DummyData[i + 1]), imageExists(DummyData[i + 2]) ]);
-    }
-    return rows;
-  }
-
-  function imageExists(image: any | undefined) {
-    if(image == undefined) return false;
-    else return image;
-  }
-
-  function HTMLRows() {
-    let rowsArray= [];
-
-    for (let i = 0; i < numberOfRows; i++) {
-      const imageOne    = dataArray()[i][0].imgName; 
-      const imageTwo    = dataArray()[i][1].imgName;
-      const imageThree  = dataArray()[i][2].imgName;
-
-      rowsArray.push( 
-        <div className="row" key={i}>
-          <div className="content">
-            <img src={imageOne} loading="lazy" />
-          </div>
-          <div className="content">
-            {imageTwo && <img src={imageTwo} loading="lazy" />}
-          </div>
-          <div className="content">
-            {imageThree && <img src={imageThree} loading="lazy" />}
-          </div>
-        </div> 
-      );
-    }
-    return rowsArray;
-  }
-
-  const ContentRows = () => {
-    return DummyData.map((post, i) => {
-      return (
-        <div className="row" key={i}>
-          <div className="content">
-            <img src="#" loading="lazy" />
-          </div>
-          <div className="content">
-            <img src="#" loading="lazy" />
-          </div>
-          <div className="content">
-            <img src="#" loading="lazy" />
-          </div>
-        </div>
-      )
-    })
-  }
 
   return (
     <div id="App">
@@ -116,7 +56,7 @@ function App() {
 				</div>
 
         <div id="ContentContainer">
-          { HTMLRows() }
+          { Content() }
         </div>
     </div>
   )
