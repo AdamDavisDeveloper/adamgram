@@ -2,10 +2,74 @@ import { useState } from 'react';
 import Logo from './assets/logo.svg';
 import ProfilePhoto from './assets/profile.jpg';
 import BlueCheck from './assets/blue-check.svg';
+import DummyData from './DummyData';
 
 import './Main.scss'
 
 function App() {
+  const [ follows, setFollows ]     = useState(0);
+  const [ followers, setFollowers ] = useState(0);
+  const [ posts, setPosts ]         = useState(0);
+  const [ indexCounter, setIndexCounter ] = useState(0);
+  
+  const rowsExtended: number = (DummyData.length % 3 === 0) ? 0 : 1;
+  //const numberOfRows: number = Math.floor(DummyData.length / 3) + rowsExtended;
+  const numberOfRows: number = dataArray().length;
+
+  function dataArray() {
+    let rows = [];
+    for (let i = 0; i < DummyData.length; i += 3) {
+      rows.push([DummyData[i], DummyData[i + 1], DummyData[i + 2]]);
+    }
+    return rows;
+  }
+
+  console.log(dataArray());
+
+  function HTMLRows() {
+    let rowsArray= [];
+    for (let i = 0; i < numberOfRows; i++) {
+      const imageOne    = dataArray()[i][0].imgName; 
+      const imageTwo    = dataArray()[i][1].imgName ?? false;
+      const imageThree  = dataArray()[i][2].imgName ?? false;
+
+      rowsArray.push( 
+        <div className="row" key={i}>
+          <div className="content">
+            <img src={imageOne} loading="lazy" />
+          </div>
+          <div className="content">
+            {(imageTwo) ? <img src={imageTwo} loading="lazy" /> : null}
+          </div>
+          <div className="content">
+            {(imageThree) ? <img src={imageThree} loading="lazy" /> : null}
+          </div>
+        </div> 
+      );
+      setIndexCounter((previous) => previous + 3);
+    }
+
+    return rowsArray;
+  }
+
+  const ContentRows = () => {
+    return DummyData.map((post, i) => {
+      return (
+        <div className="row" key={i}>
+          <div className="content">
+            <img src="#" loading="lazy" />
+          </div>
+          <div className="content">
+            <img src="#" loading="lazy" />
+          </div>
+          <div className="content">
+            <img src="#" loading="lazy" />
+          </div>
+        </div>
+      )
+    })
+  }
+
   return (
     <div id="App">
       <div className="logo-wrapper">
@@ -21,20 +85,38 @@ function App() {
             <div id="message_button" className="button" onClick={(e) => null}>
 							Message
 						</div>
-            <div id="follow_button" className="button" onClick={(e) => null}>
+            <div id="follow_button" className="button" onClick={(e) => {
+              setFollowers((followers) => followers+1)
+            }}>
               Follow
             </div>
           </div>
         </div>
+      </div>
 
         <div id="DescriptionContainer">
-					<div id="description">
-						a human from earth
+					<div id="Description">
+						frontend engineer x designer
 						<br />
-						<a href="https://github.com/hunterirving/Huntergram">github.com/hunterirving/Huntergram</a>
+						<a href="https://github.com/AdamDavisDeveloper">github.com/adam</a>
 					</div>
 				</div>
-      </div>
+
+        <div id="StatsContainer">
+					<div id="Follows" className="stats">
+						<p>Follows<br /><b>{follows}</b></p>	
+					</div>
+					<div id="FollowedBy" className="stats">
+						<p>Followed by<br /><b><span id="follower_count">{followers}</span></b></p>
+					</div>
+					<div id="Posts" className="stats">
+						<p>Posts<br /><b><span>{posts}</span></b></p>
+					</div>
+				</div>
+
+        <div id="ContentContainer">
+          { HTMLRows() }
+        </div>
     </div>
   )
 }
