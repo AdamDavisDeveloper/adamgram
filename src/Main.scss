@@ -94,7 +94,7 @@ body {
         text-align: center;
         display: inline-block;
         margin-top: 12px;
-        margin-right: 3px;
+        margin-right: 8px;
         transition: 0.1s;
         &:hover {
             cursor: pointer;
@@ -145,7 +145,7 @@ body {
         height: 0;
         width:calc(100%/3);
         padding-bottom:calc(100%/3);
-        background-color: var(--pure_black);
+        background-color: #000000;
         position: relative;
         img {
             max-width: 100%;

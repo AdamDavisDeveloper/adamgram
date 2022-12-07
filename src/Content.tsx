@@ -1,4 +1,3 @@
-import React from "react";
 import DummyData from "./DummyData";
 const numberOfRows: number = dataArray().length;
 
