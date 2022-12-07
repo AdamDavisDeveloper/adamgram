@@ -10,7 +10,6 @@ function App() {
   const [ follows, setFollows ]     = useState(0);
   const [ followers, setFollowers ] = useState(0);
   const [ posts, setPosts ]         = useState(0);
-  const [ indexCounter, setIndexCounter ] = useState(0);
   
   const rowsExtended: number = (DummyData.length % 3 === 0) ? 0 : 1;
   //const numberOfRows: number = Math.floor(DummyData.length / 3) + rowsExtended;
@@ -19,19 +18,23 @@ function App() {
   function dataArray() {
     let rows = [];
     for (let i = 0; i < DummyData.length; i += 3) {
-      rows.push([DummyData[i], DummyData[i + 1], DummyData[i + 2]]);
+      rows.push([DummyData[i], imageExists(DummyData[i + 1]), imageExists(DummyData[i + 2]) ]);
     }
     return rows;
   }
 
-  console.log(dataArray());
+  function imageExists(image: any | undefined) {
+    if(image == undefined) return false;
+    else return image;
+  }
 
   function HTMLRows() {
     let rowsArray= [];
+
     for (let i = 0; i < numberOfRows; i++) {
       const imageOne    = dataArray()[i][0].imgName; 
-      const imageTwo    = dataArray()[i][1].imgName ?? false;
-      const imageThree  = dataArray()[i][2].imgName ?? false;
+      const imageTwo    = dataArray()[i][1].imgName;
+      const imageThree  = dataArray()[i][2].imgName;
 
       rowsArray.push( 
         <div className="row" key={i}>
@@ -39,16 +42,14 @@ function App() {
             <img src={imageOne} loading="lazy" />
           </div>
           <div className="content">
-            {(imageTwo) ? <img src={imageTwo} loading="lazy" /> : null}
+            {imageTwo && <img src={imageTwo} loading="lazy" />}
           </div>
           <div className="content">
-            {(imageThree) ? <img src={imageThree} loading="lazy" /> : null}
+            {imageThree && <img src={imageThree} loading="lazy" />}
           </div>
         </div> 
       );
-      setIndexCounter((previous) => previous + 3);
     }
-
     return rowsArray;
   }
 
