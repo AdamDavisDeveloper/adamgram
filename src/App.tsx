@@ -9,24 +9,23 @@ import './Main.scss'
 import DummyData from './DummyData';
 
 function App() {
-  const [ follows, setFollows ]     = useState(0);
-  const [ followers, setFollowers ] = useState(0);
-  const [ posts, setPosts ]         = useState(0);
-  const [ view, setView ]           = useState("Main");
-  const [ currentPostData, setCurrentPostData ] = useState("");
+  const [ contentData, setContentData ]         = useState();
+  const [ follows, setFollows ]                 = useState(0);
+  const [ followers, setFollowers ]             = useState(0);
+  const [ posts, setPosts ]                     = useState(0);
+  const [ view, setView ]                       = useState("Main");
+  const [ currentPostData, setCurrentPostData ] = useState({});
 
   useEffect(() => {
+    //@ts-ignore
+    setContentData(DummyData); //TODO: this will soon be fetching data from Firestore so we set it in state
     setPosts(DummyData.length);
   }, []);
-
-  useEffect(() => {
-    console.log(currentPostData);
-  }, [currentPostData]);
 
   const CurrentView = () => {
     switch(view) {
       case "Main": return <Main />
-      case "Post": return <Post />;
+      case "Post": return <Post currentPostData={currentPostData} setCurrentPostData={setCurrentPostData} />;
       default: return <Main />;
     };
   };
@@ -76,7 +75,8 @@ function App() {
           <div id="ContentContainer">
             { 
               Content({
-                currentPostData,
+                contentData,
+                setView,
                 setCurrentPostData
               })
             }

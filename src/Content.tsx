@@ -15,9 +15,11 @@ function imageExists(image: any | undefined) {
 }
 
 export default (props: {
-  currentPostData: any,
+  contentData: any,
+  setView: React.Dispatch<React.SetStateAction<string>>,
   setCurrentPostData: React.Dispatch<React.SetStateAction<any>>
 }) => {
+    const { setView, setCurrentPostData } = props;
     let rowsArray= [];
 
     for (let i = 0; i < numberOfRows; i++) {
@@ -28,13 +30,22 @@ export default (props: {
       rowsArray.push( 
         <div className="row" key={i}>
           <div className="content">
-            <img src={imageOne.imgName} loading="lazy" onClick={() => props.setCurrentPostData(imageOne)} />
+            <img src={imageOne.imgName} loading="lazy" onClick={() => {
+              setCurrentPostData(imageOne);
+              setView("Post");
+            }} />
           </div>
           <div className="content">
-            {imageTwo && <img src={imageTwo.imgName} loading="lazy" onClick={() => props.setCurrentPostData(imageTwo)} />}
+            {imageTwo && <img src={imageTwo.imgName} loading="lazy" onClick={() => {
+              setCurrentPostData(imageTwo);
+              setView("Post");
+            }} />}
           </div>
           <div className="content">
-            {imageThree && <img src={imageThree.imgName} loading="lazy" onClick={() => props.setCurrentPostData(imageThree)} />}
+            {imageThree && <img src={imageThree.imgName} loading="lazy" onClick={() => {
+              setCurrentPostData(imageThree);
+              setView("Post");
+            }} />}
           </div>
         </div> 
       );
