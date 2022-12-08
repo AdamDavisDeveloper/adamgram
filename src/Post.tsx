@@ -1,5 +1,9 @@
-import React from "react";
+import AppBar from "./widgets/AppBar";
 
 export default (props: any) => {
-    return null;
+    return (
+        <>
+            <AppBar />
+        </>
+    )
 }

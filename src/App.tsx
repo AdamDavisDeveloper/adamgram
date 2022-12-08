@@ -1,21 +1,32 @@
-import { useState } from 'react';
-import Logo from './assets/logo.svg';
+import { useState, useEffect } from 'react';
 import ProfilePhoto from './assets/me.png';
 import BlueCheck from './assets/blue-check.svg';
 import Content from './Content';
+import AppBar from './widgets/AppBar';
+import Post from './Post';
 
 import './Main.scss'
+import DummyData from './DummyData';
 
 function App() {
   const [ follows, setFollows ]     = useState(0);
   const [ followers, setFollowers ] = useState(0);
   const [ posts, setPosts ]         = useState(0);
   const [ view, setView ]           = useState("Main");
+  const [ currentPostData, setCurrentPostData ] = useState("");
+
+  useEffect(() => {
+    setPosts(DummyData.length);
+  }, []);
+
+  useEffect(() => {
+    console.log(currentPostData);
+  }, [currentPostData]);
 
   const CurrentView = () => {
     switch(view) {
       case "Main": return <Main />
-      // case "Post": return null;
+      case "Post": return <Post />;
       default: return <Main />;
     };
   };
@@ -23,10 +34,7 @@ function App() {
   const Main = () => {
     return (
       <div id="App">
-        <div className="logo-wrapper">
-          <img src={Logo} alt="Adamgram logo" />
-        </div>
-
+        <AppBar />
         <div id="BioWrapper">
           <img className="profile-photo" src={ProfilePhoto} alt="" />
           <div className="bio-info-wrapper">
@@ -66,7 +74,12 @@ function App() {
           </div>
 
           <div id="ContentContainer">
-            { Content() }
+            { 
+              Content({
+                currentPostData,
+                setCurrentPostData
+              })
+            }
           </div>
       </div>
     )

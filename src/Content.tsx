@@ -14,24 +14,27 @@ function imageExists(image: any | undefined) {
     else return image;
 }
 
-export default function() {
+export default (props: {
+  currentPostData: any,
+  setCurrentPostData: React.Dispatch<React.SetStateAction<any>>
+}) => {
     let rowsArray= [];
 
     for (let i = 0; i < numberOfRows; i++) {
-      const imageOne    = dataArray()[i][0].imgName; 
-      const imageTwo    = dataArray()[i][1].imgName;
-      const imageThree  = dataArray()[i][2].imgName;
+      const imageOne    = dataArray()[i][0]; 
+      const imageTwo    = dataArray()[i][1];
+      const imageThree  = dataArray()[i][2];
 
       rowsArray.push( 
         <div className="row" key={i}>
           <div className="content">
-            <img src={imageOne} loading="lazy" />
+            <img src={imageOne.imgName} loading="lazy" onClick={() => props.setCurrentPostData(imageOne)} />
           </div>
           <div className="content">
-            {imageTwo && <img src={imageTwo} loading="lazy" />}
+            {imageTwo && <img src={imageTwo.imgName} loading="lazy" onClick={() => props.setCurrentPostData(imageTwo)} />}
           </div>
           <div className="content">
-            {imageThree && <img src={imageThree} loading="lazy" />}
+            {imageThree && <img src={imageThree.imgName} loading="lazy" onClick={() => props.setCurrentPostData(imageThree)} />}
           </div>
         </div> 
       );
