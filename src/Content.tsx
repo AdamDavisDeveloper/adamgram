@@ -1,25 +1,26 @@
-import DummyData from "./DummyData";
-const numberOfRows: number = dataArray().length;
-
-function dataArray() {
-    let rows = [];
-    for (let i = 0; i < DummyData.length; i += 3) {
-      rows.push([DummyData[i], imageExists(DummyData[i + 1]), imageExists(DummyData[i + 2]) ]);
-    }
-    return rows;
-}
-
-function imageExists(image: any | undefined) {
-    if(image == undefined) return false;
-    else return image;
-}
 
 export default (props: {
   contentData: any,
   setView: React.Dispatch<React.SetStateAction<string>>,
   setCurrentPostData: React.Dispatch<React.SetStateAction<any>>
 }) => {
-    const { setView, setCurrentPostData } = props;
+    const { contentData, setView, setCurrentPostData } = props;
+    const numberOfRows: number = dataArray().length;
+
+    if(!contentData) return <></>;
+    
+    function dataArray() {
+        let rows = [];
+        for (let i = 0; i < contentData.length; i += 3) {
+          rows.push([contentData[i], imageExists(contentData[i + 1]), imageExists(contentData[i + 2]) ]);
+        }
+        return rows;
+    }
+    
+    function imageExists(image: any | undefined) {
+        if(image == undefined) return false;
+        else return image;
+    }
     let rowsArray= [];
 
     for (let i = 0; i < numberOfRows; i++) {

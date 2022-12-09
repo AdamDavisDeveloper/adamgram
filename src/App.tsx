@@ -25,7 +25,7 @@ function App() {
   const CurrentView = () => {
     switch(view) {
       case "Main": return <Main />
-      case "Post": return <Post currentPostData={currentPostData} setCurrentPostData={setCurrentPostData} />;
+      case "Post": return <Post ProfilePhoto={ProfilePhoto} currentPostData={currentPostData} setCurrentPostData={setCurrentPostData} />;
       default: return <Main />;
     };
   };
@@ -85,6 +85,7 @@ function App() {
     )
   };
 
+  if(!contentData) return <></>;
   return <CurrentView />
   
 }

@@ -1,0 +1,43 @@
+#Post {
+    min-height: 100vh;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    border-left: 1px solid rgb(47, 47, 47);
+    border-right: 1px solid rgb(47, 47, 47);
+}
+
+#PostContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    header {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        .post-profile-photo {
+            width: 30px;
+            height: 30px;
+        }
+    }
+    .content {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 0;
+        width: 90%;
+        padding-bottom:calc(100%/2);
+        background-color: #000000;
+        img {
+            border-radius: 2px;
+            max-width: 100%;
+            display: block;
+        }
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+}
