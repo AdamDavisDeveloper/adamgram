@@ -5,13 +5,14 @@ import Content from './Content';
 import AppBar from './widgets/AppBar';
 import Post from './Post';
 
-import './Main.scss'
+import './Global.scss';
+import './Main.scss';
 import DummyData from './DummyData';
 
 function App() {
   const [ contentData, setContentData ]         = useState();
-  const [ follows, setFollows ]                 = useState(0);
-  const [ followers, setFollowers ]             = useState(0);
+  const [ follows, setFollows ]                 = useState(16);
+  const [ followers, setFollowers ]             = useState(1538);
   const [ posts, setPosts ]                     = useState(0);
   const [ view, setView ]                       = useState("Main");
   const [ currentPostData, setCurrentPostData ] = useState({});
@@ -37,7 +38,7 @@ function App() {
         <div id="BioWrapper">
           <img className="profile-photo" src={ProfilePhoto} alt="" />
           <div className="bio-info-wrapper">
-            <h2 className="user-name">adam</h2>
+            <h2 className="user-name">adam.png</h2>
             <img id="VerifiedCheck" src={BlueCheck} alt="verified blue checkmark" />
             <div id="Buttons">
               <div id="message_button" className="button" onClick={(e) => null}>
@@ -54,7 +55,7 @@ function App() {
 
           <div id="DescriptionContainer">
             <div id="Description">
-              frontend engineer x designer
+              frontend engineer x designer | retro futurist
               <br />
               <a href="https://github.com/AdamDavisDeveloper">github.com/adam</a>
             </div>
