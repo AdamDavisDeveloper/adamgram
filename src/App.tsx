@@ -4,6 +4,7 @@ import BlueCheck from './assets/blue-check.svg';
 import Content from './Content';
 import AppBar from './widgets/AppBar';
 import Post from './Post';
+import Login from './Login';
 
 import './Global.scss';
 import './Main.scss';
@@ -14,7 +15,7 @@ function App() {
   const [ follows, setFollows ]                 = useState(16);
   const [ followers, setFollowers ]             = useState(1538);
   const [ posts, setPosts ]                     = useState(0);
-  const [ view, setView ]                       = useState("Main");
+  const [ view, setView ]                       = useState("Home");
   const [ currentPostData, setCurrentPostData ] = useState({});
 
   useEffect(() => {
@@ -25,8 +26,9 @@ function App() {
 
   const CurrentView = () => {
     switch(view) {
-      case "Main": return <Main />
+      case "Main": return <Main />;
       case "Post": return <Post ProfilePhoto={ProfilePhoto} currentPostData={currentPostData} setCurrentPostData={setCurrentPostData} />;
+      case "Login": return <Login />;
       default: return <Main />;
     };
   };
@@ -86,9 +88,8 @@ function App() {
     )
   };
 
-  if(!contentData) return <></>;
+  if(!contentData) return <></>; //TODO: have a loading spinner here or something non-blank lol
   return <CurrentView />
-  
-}
+};
 
 export default App;

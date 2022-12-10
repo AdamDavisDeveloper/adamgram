@@ -1,0 +1,25 @@
+#Login {
+    min-height: 100vh;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    border-left: 1px solid rgb(47, 47, 47);
+    border-right: 1px solid rgb(47, 47, 47);
+
+    #Form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            input {
+                margin: .5rem 0;
+                height: 2rem;
+            }
+        }
+    }
+}

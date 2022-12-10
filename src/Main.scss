@@ -1,26 +1,3 @@
-.logo-wrapper {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background-color: #1b1b1b;
-    padding: 0;
-    z-index: 1;
-    cursor: pointer;
-
-    img {
-        display: block;
-        margin: 0;
-        width: 16%;
-        min-width: 90px;
-        max-width: 150px;
-        padding-left: 20px;
-        padding-right: 5px;
-        padding-top: 15px;
-        padding-bottom: 17px;
-        shape-rendering: geometricPrecision;
-    }
-}
-
 #App {
     height: 100%;
     max-width: 600px;
