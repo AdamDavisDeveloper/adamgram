@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Profile from './profile-config.json';
 import ProfilePhoto from './assets/me.png';
 import BlueCheck from './assets/blue-check.svg';
 import Content from './Content';
@@ -40,7 +41,7 @@ function App() {
         <div id="BioWrapper">
           <img className="profile-photo" src={ProfilePhoto} alt="" />
           <div className="bio-info-wrapper">
-            <h2 className="user-name">adam.png</h2>
+            <h2 className="user-name">{Profile.name}</h2>
             <img id="VerifiedCheck" src={BlueCheck} alt="verified blue checkmark" />
             <div id="Buttons">
               <div id="message_button" className="button" onClick={(e) => null}>

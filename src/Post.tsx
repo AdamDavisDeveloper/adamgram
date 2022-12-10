@@ -1,3 +1,4 @@
+import Profile from './profile-config.json';
 import AppBar from "./widgets/AppBar";
 import './Global.scss';
 import './Post.scss';
@@ -9,7 +10,7 @@ export default (props: {
 }) => {
 
     function viewCommentsText() {
-        let commentsNumber = 1;
+        let commentsNumber = 5;
         if(commentsNumber > 1) {
             return `View all ${commentsNumber} comments`;
         } else return "View comment";
@@ -23,7 +24,7 @@ export default (props: {
                     <header>
                         <img className="post-profile-photo" src={props.ProfilePhoto} alt="profile" />
                         <div className="info" onClick={() => { window.location.reload() }}>
-                            <span className="username"><b>adam.png</b></span>
+                            <span className="username"><b>{Profile.name}</b></span>
                             <span>{props.currentPostData.location || ""}</span>
                         </div>
                     </header>
@@ -43,7 +44,7 @@ export default (props: {
 
                     <div className="description">
                         <span>Liked by <b>24</b> others</span>
-                        <span><b>adam.png</b> {props.currentPostData.description}</span>
+                        <span><b>{Profile.name}</b> {props.currentPostData.description}</span>
                         <span className="view-comments">{viewCommentsText()}</span>
                         <span className="date">December 18</span>
                     </div>
