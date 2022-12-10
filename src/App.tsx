@@ -7,9 +7,15 @@ import AppBar from './widgets/AppBar';
 import Post from './Post';
 import Login from './Login';
 
+import { firebaseConfig } from './firebaseConfig';
+
 import './Global.scss';
 import './Main.scss';
 import DummyData from './DummyData';
+
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
 
 function App() {
   const [ contentData, setContentData ]         = useState();
@@ -19,7 +25,12 @@ function App() {
   const [ view, setView ]                       = useState("Home");
   const [ currentPostData, setCurrentPostData ] = useState({});
 
+  // Firebase
+  const app = initializeApp(firebaseConfig);
+  //const analytics = getAnalytics(app);
+
   useEffect(() => {
+
     //@ts-ignore
     setContentData(DummyData); //TODO: this will soon be fetching data from Firestore so we set it in state
     setPosts(DummyData.length);
