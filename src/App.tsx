@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Profile from './profile-config.json';
 import ProfilePhoto from './assets/me.png';
 import BlueCheck from './assets/blue-check.svg';
@@ -7,7 +8,7 @@ import AppBar from './widgets/AppBar';
 import Post from './Post';
 import Login from './Login';
 
-import { firebaseConfig } from './firebaseConfig';
+import { firebaseConfig } from './firebaseConfiguration';
 
 import './Global.scss';
 import './Main.scss';
@@ -16,6 +17,9 @@ import DummyData from './DummyData';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
+// Firebase
+const firebaseApp = initializeApp(firebaseConfig);
+//const analytics = getAnalytics(app);
 
 function App() {
   const [ contentData, setContentData ]         = useState();
@@ -25,27 +29,15 @@ function App() {
   const [ view, setView ]                       = useState("Home");
   const [ currentPostData, setCurrentPostData ] = useState({});
 
-  // Firebase
-  const app = initializeApp(firebaseConfig);
-  //const analytics = getAnalytics(app);
 
   useEffect(() => {
-
     //@ts-ignore
     setContentData(DummyData); //TODO: this will soon be fetching data from Firestore so we set it in state
     setPosts(DummyData.length);
   }, []);
 
-  const CurrentView = () => {
-    switch(view) {
-      case "Main": return <Main />;
-      case "Post": return <Post ProfilePhoto={ProfilePhoto} currentPostData={currentPostData} setCurrentPostData={setCurrentPostData} />;
-      case "Login": return <Login />;
-      default: return <Main />;
-    };
-  };
-
   const Main = () => {
+    if(!contentData) return <></>; //TODO: have a loading spinner here or something non-blank lol
     return (
       <div id="App">
         <AppBar />
@@ -100,8 +92,13 @@ function App() {
     )
   };
 
-  if(!contentData) return <></>; //TODO: have a loading spinner here or something non-blank lol
-  return <CurrentView />
+  return (
+    <Routes>
+      <Route index element={<Main />} />
+      <Route path="post/:imageName" element={<Post ProfilePhoto={ProfilePhoto} currentPostData={currentPostData} setCurrentPostData={setCurrentPostData}/>} />
+      <Route path="admin" element={<Login />} />
+    </Routes>
+  )
 };
 
 export default App;
