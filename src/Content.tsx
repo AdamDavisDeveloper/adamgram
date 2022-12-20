@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 export default (props: {
   contentData: any,
   setView: React.Dispatch<React.SetStateAction<string>>,
@@ -30,24 +30,21 @@ export default (props: {
 
       rowsArray.push( 
         <div className="row" key={i}>
-          <div className="content">
+          <Link className="content" to={`post/${imageOne.slug}`}>
             <img src={imageOne.imgName} loading="lazy" onClick={() => {
               setCurrentPostData(imageOne);
-              setView("Post");
             }} />
-          </div>
-          <div className="content">
+          </Link>
+          <Link className="content" to={`post/${imageTwo?.slug}`}>
             {imageTwo && <img src={imageTwo.imgName} loading="lazy" onClick={() => {
               setCurrentPostData(imageTwo);
-              setView("Post");
             }} />}
-          </div>
-          <div className="content">
+          </Link>
+          <Link className="content" to={`post/${imageThree?.slug}`}>
             {imageThree && <img src={imageThree.imgName} loading="lazy" onClick={() => {
               setCurrentPostData(imageThree);
-              setView("Post");
             }} />}
-          </div>
+          </Link>
         </div> 
       );
     }

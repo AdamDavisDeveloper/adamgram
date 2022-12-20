@@ -1,5 +1,7 @@
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Profile from './profile-config.json';
 import AppBar from "./widgets/AppBar";
+import DummyData from './DummyData';
 import './Global.scss';
 import './Post.scss';
 
@@ -8,6 +10,8 @@ export default (props: {
     currentPostData: any,
     setCurrentPostData: React.Dispatch<React.SetStateAction<any>>
 }) => {
+    const navigate = useNavigate();
+    const { slug } = useParams();
 
     function viewCommentsText() {
         let commentsNumber = 5;
@@ -16,20 +20,24 @@ export default (props: {
         } else return "View comment";
     }
 
+    function postData() {
+        return DummyData.find((photo) => photo.slug == slug);
+    }
+
     return (
         <div id="Post">
             <AppBar />
             <div id="PostContainer">
                 <div className="content">
-                    <header>
+                    <header onClick={() => navigate("/")}>
                         <img className="post-profile-photo" src={props.ProfilePhoto} alt="profile" />
-                        <div className="info" onClick={() => { window.location.reload() }}>
+                        <div className="info">
                             <span className="username"><b>{Profile.name}</b></span>
                             <span>{props.currentPostData.location || ""}</span>
                         </div>
                     </header>
 
-                    <img src={props.currentPostData.imgName} alt="alt text" />
+                    <img src={postData()?.imgName} alt="alt text" />
 
                     <div className="buttons">
                         <div className="left">

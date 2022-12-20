@@ -14,6 +14,7 @@ export default [
         location: "Atlanta, GA",
         likes: 0,
         comments: [],
+        slug: "fog-street"
     },
     {
         imgName: Ivy,
@@ -22,6 +23,7 @@ export default [
         location: "Atlanta, GA",
         likes: 0,
         comments: [],
+        slug: "ivy"
     },
     {
         imgName: Moon,
@@ -30,6 +32,7 @@ export default [
         location: "Atlanta, GA",
         likes: 0,
         comments: [],
+        slug: "moon"
     },
     {
         imgName: Prometheus,
@@ -38,6 +41,7 @@ export default [
         location: "Atlanta, GA",
         likes: 0,
         comments: [],
+        slug: "prometheus"
     },
     {
         imgName: Tunnel,
@@ -46,6 +50,7 @@ export default [
         location: "Atlanta, GA",
         likes: 0,
         comments: [],
+        slug: "tunnel"
     },
     {
         imgName: GoneFishin,
@@ -54,6 +59,7 @@ export default [
         location: "Atlanta, GA",
         likes: 0,
         comments: [],
+        slug: "gone-fishing"
     },
     {
         imgName: Lantern,
@@ -62,5 +68,6 @@ export default [
         location: "Atlanta, GA",
         likes: 0,
         comments: [],
+        slug: "lantern"
     },
 ];

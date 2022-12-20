@@ -33,7 +33,7 @@ function App() {
   const [ view, setView ]                       = useState("Home");
   const [ currentPostData, setCurrentPostData ] = useState({});
 
-  console.log(ivyRef);
+  // console.log(ivyRef);
 
   useEffect(() => {
     //@ts-ignore
@@ -100,7 +100,7 @@ function App() {
   return (
     <Routes>
       <Route index element={<Main />} />
-      <Route path="post/:imageName" element={<Post ProfilePhoto={ProfilePhoto} currentPostData={currentPostData} setCurrentPostData={setCurrentPostData}/>} />
+      <Route path="post/:slug" element={<Post ProfilePhoto={ProfilePhoto} currentPostData={currentPostData} setCurrentPostData={setCurrentPostData}/>} />
       <Route path="admin" element={<Login />} />
     </Routes>
   )
