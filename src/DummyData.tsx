@@ -5,8 +5,28 @@ import Lantern from './assets/content/lantern.jpg';
 import Moon from './assets/content/moon.jpg';
 import Prometheus from './assets/content/prometheus.jpg';
 import Tunnel from './assets/content/tunnel.jpg';
+import LoganSilly from './assets/content/logan-silly.png';
+import Chopper from './assets/content/chopper.png';
 
 export default [
+    {
+        imgName: LoganSilly,
+        description: "Logan Walker posing after an awesome motocross race.",
+        date: "10-14-22",
+        location: "Up north somewhere, GA",
+        likes: 0,
+        comments: [],
+        slug: "logan-silly"
+    },
+    {
+        imgName: Chopper,
+        description: "Logan's dog Chopper waiting to see Logan race!",
+        date: "10-14-22",
+        location: "Up north somewhere, GA",
+        likes: 0,
+        comments: [],
+        slug: "chopper"
+    },
     {
         imgName: FogStreet,
         description: "Gone fishing!",
