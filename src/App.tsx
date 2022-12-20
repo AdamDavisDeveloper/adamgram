@@ -15,10 +15,14 @@ import './Main.scss';
 import DummyData from './DummyData';
 
 import { initializeApp } from "firebase/app";
+import { getStorage, ref } from "firebase/storage";
 import { getAnalytics } from "firebase/analytics";
 
 // Firebase
 const firebaseApp = initializeApp(firebaseConfig);
+const storage = getStorage(firebaseApp);
+const imagesRef = ref(storage, 'images');
+const ivyRef = ref(storage, 'images/ivy.png');
 //const analytics = getAnalytics(app);
 
 function App() {
@@ -29,6 +33,7 @@ function App() {
   const [ view, setView ]                       = useState("Home");
   const [ currentPostData, setCurrentPostData ] = useState({});
 
+  console.log(ivyRef);
 
   useEffect(() => {
     //@ts-ignore
@@ -61,7 +66,7 @@ function App() {
 
           <div id="DescriptionContainer">
             <div id="Description">
-              frontend engineer x designer | retro futurist
+              frontend engineer x designer | photographer
               <br />
               <a href="https://github.com/AdamDavisDeveloper">github.com/adam</a>
             </div>
