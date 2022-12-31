@@ -68,7 +68,7 @@ export default [
     {
         imgName: LoganSilly,
         description: "Logan Walker posing after an awesome motocross race.",
-        date: "10-14-22",
+        date: "12-17-22",
         location: "Up north somewhere, GA",
         likes: 0,
         comments: [],
@@ -77,7 +77,7 @@ export default [
     {
         imgName: MotorcycleJump,
         description: "Logan getting some rad air at the moto race.",
-        date: "10-15-22",
+        date: "12-17-22",
         location: "Up north, GA",
         likes: 0,
         comments: [],
@@ -86,7 +86,7 @@ export default [
     {
         imgName: Chopper,
         description: "Logan's dog Chopper waiting to see Logan race!",
-        date: "10-14-22",
+        date: "12-17-22",
         location: "Up north somewhere, GA",
         likes: 0,
         comments: [],
@@ -95,7 +95,7 @@ export default [
     {
         imgName: FogStreet,
         description: "Foggy times on my way to work.",
-        date: "10-14-22",
+        date: "12-07-22",
         location: "Atlanta, GA",
         likes: 0,
         comments: [],
@@ -104,7 +104,7 @@ export default [
     {
         imgName: Ivy,
         description: "Some ivy growing. idk why",
-        date: "11-16-22",
+        date: "11-30-22",
         location: "Atlanta, GA",
         likes: 0,
         comments: [],
