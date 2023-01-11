@@ -54,7 +54,7 @@ export default (props: {
                         <span>Liked by <b>24</b> others</span>
                         <span><b>{Profile.name}</b> {props.currentPostData.description}</span>
                         <span className="view-comments">{viewCommentsText()}</span>
-                        <span className="date">December 18</span>
+                        <span className="date">{props.currentPostData.date}</span>
                     </div>
                 </div>
 
