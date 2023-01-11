@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Profile from './profile-config.json';
-import ProfilePhoto from './assets/me.png';
+import ProfilePhoto from './assets/profile.gif';
 import BlueCheck from './assets/blue-check.svg';
 import Content from './Content';
 import AppBar from './widgets/AppBar';
