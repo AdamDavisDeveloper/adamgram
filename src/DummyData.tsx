@@ -9,8 +9,38 @@ import MatthewPool from './assets/content/matthew-pool.jpg';
 import MotorcycleJump from './assets/content/motorcycle-jump.jpg';
 import OllieAndElle_01 from './assets/content/ollie-and-elle-01.jpg';
 import Vivi from './assets/content/vivi.jpg';
+import Rose from './assets/content/rose.jpg';
+import FujifilmInstant from './assets/content/fujifilm-instant.jpg';
+import WalkingFromWholeFoods from './assets/content/walking-from-wholefoods.jpg';
 
 export default [
+    {
+        imgName: Rose,
+        description: "I found this rose lying at the base of a tree on a walk today.",
+        date: "01-10-23",
+        location: "Atlanta, GA",
+        likes: 0,
+        comments: [],
+        slug: "rose"
+    },
+    {
+        imgName: WalkingFromWholeFoods,
+        description: "Saw this girl with a cool outfit walking near Whole Foods and had to snap a street portrait.",
+        date: "01-10-23",
+        location: "Atlanta, GA",
+        likes: 0,
+        comments: [],
+        slug: "walking-from-wholefoods"
+    },
+    {
+        imgName: FujifilmInstant,
+        description: "A photo Christina took of me with her instant Fujifilm camera.",
+        date: "12-30-22",
+        location: "Atlanta, GA",
+        likes: 0,
+        comments: [],
+        slug: "fujifilm-instant"
+    },
     {
         imgName: Vivi,
         description: "Portrait of Vivian",
