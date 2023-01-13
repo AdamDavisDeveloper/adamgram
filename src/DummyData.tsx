@@ -12,8 +12,38 @@ import Vivi from './assets/content/vivi.jpg';
 import Rose from './assets/content/rose.jpg';
 import FujifilmInstant from './assets/content/fujifilm-instant.jpg';
 import WalkingFromWholeFoods from './assets/content/walking-from-wholefoods.jpg';
+import LittlePlant from './assets/content/little-plant.jpg';
+import Neighborhood from './assets/content/neighborhood.jpg';
+import WoahMe from './assets/content/woah-me.jpg';
 
 export default [
+    {
+        imgName: LittlePlant,
+        description: "what a cool little wet plant i fond on the sidewalk!",
+        date: "01-11-23",
+        location: "Atlanta, GA",
+        likes: 0,
+        comments: [],
+        slug: "little-plant"
+    },
+    {
+        imgName: Neighborhood,
+        description: "i had to stop my car for this photo. didn't turn out great but it's a good memory. <3",
+        date: "01-10-23",
+        location: "Atlanta, GA",
+        likes: 0,
+        comments: [],
+        slug: "neighborhood"
+    },
+    {
+        imgName: WoahMe,
+        description: "lol reflection of me",
+        date: "01-10-23",
+        location: "Atlanta, GA",
+        likes: 0,
+        comments: [],
+        slug: "woah-me"
+    },
     {
         imgName: Rose,
         description: "I found this rose lying at the base of a tree on a walk today.",
